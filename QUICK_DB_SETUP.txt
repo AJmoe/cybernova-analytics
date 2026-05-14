@@ -1,0 +1,35 @@
+# DATABASE SETUP REQUIRED
+
+## Problem
+Application deployed but MySQL database not created. Getting 404 error.
+
+## Solution
+
+### Option 1: Double-Click Setup Script (Easiest)
+1. Find: `C:\Users\ADMIN\AppData\Local\PD_WEBAPP\SETUP_MYSQL.bat`
+2. Double-click it
+3. Enter MySQL root password (or press Enter if none)
+4. Restart Tomcat
+5. Test: http://localhost:8080/pd_webapp/admin/login
+
+### Option 2: Manual in MySQL Workbench
+1. Open MySQL Workbench
+2. File → Open SQL Script
+3. Select: `C:\Users\ADMIN\AppData\Local\PD_WEBAPP\scripts\mysql-setup.sql`
+4. Click Lightning Bolt (⚡) to execute
+5. Restart Tomcat
+
+## What Gets Created
+- Database: `cybernova_analytics`
+- 6 tables with sample data
+- Admin user: admin/admin123
+
+## Default Login After Setup
+- Username: admin
+- Password: admin123
+
+## Access After Setup
+http://localhost:8080/pd_webapp/admin/login
+
+See DATABASE_SETUP_REQUIRED.md for detailed instructions.
+

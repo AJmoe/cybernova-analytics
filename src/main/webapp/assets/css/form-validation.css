@@ -1,0 +1,356 @@
+/**
+ * Live Form Validation Styles
+ * Visual feedback, error messages, format examples
+ */
+
+/* Input Error State */
+input.input-error,
+textarea.input-error,
+select.input-error {
+    border-color: #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.05);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+input.input-error:focus,
+textarea.input-error:focus,
+select.input-error:focus {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+    outline: none;
+}
+
+/* Error Container */
+.field-error-container {
+    margin-top: 0.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error Message */
+.error-message {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #fecaca;
+    color: #7f1d1d;
+}
+
+.error-message strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Error Hint */
+.error-hint {
+    padding: 0.5rem 0;
+    color: #991b1b;
+    font-size: 0.8125rem;
+    font-style: italic;
+}
+
+/* Format Example */
+.format-example {
+    padding: 0.5rem 0;
+    background-color: rgba(59, 130, 246, 0.05);
+    border-left: 2px solid #3b82f6;
+    padding-left: 0.75rem;
+    margin-top: 0.5rem;
+    color: #1e40af;
+}
+
+.format-example code {
+    background-color: rgba(59, 130, 246, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8125rem;
+    color: #1e3a8a;
+}
+
+/* Success Message */
+.success-message {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 1rem;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.field-success {
+    /* Empty, used for styling */
+}
+
+.field-error {
+    /* Empty, used for styling */
+}
+
+/* Character Counter */
+.character-counter {
+    font-size: 0.8125rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+    padding-right: 0.5rem;
+}
+
+.character-counter.counter-warning {
+    color: #f59e0b;
+    font-weight: 500;
+}
+
+.character-counter.counter-alert {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Form Group with Validation */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1.5px solid rgba(15, 44, 102, 0.15);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #f2a900;
+    box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.15);
+}
+
+.form-group input:valid:not(.input-error),
+.form-group textarea:valid:not(.input-error),
+.form-group select:valid:not(.input-error) {
+    border-color: #22c55e;
+}
+
+/* Validation Feedback Summary (for entire form) */
+.validation-summary {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid #fecaca;
+    color: #7f1d1d;
+}
+
+.validation-summary-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.validation-summary-list {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.validation-summary-list li {
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+}
+
+.validation-summary-list li:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .format-example {
+        font-size: 0.75rem;
+    }
+
+    .format-example code {
+        font-size: 0.7rem;
+    }
+
+    .error-message {
+        padding: 0.5rem;
+    }
+
+    .character-counter {
+        font-size: 0.75rem;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .error-message {
+        background-color: rgba(239, 68, 68, 0.15);
+        border-color: #7f1d1d;
+    }
+
+    .error-hint {
+        color: #fca5a5;
+    }
+
+    .format-example {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: #93c5fd;
+    }
+
+    .format-example code {
+        background-color: rgba(59, 130, 246, 0.2);
+        color: #bfdbfe;
+    }
+
+    .character-counter {
+        color: #9ca3af;
+    }
+
+    .form-group label {
+        color: #d1d5db;
+    }
+}
+
+/* Accessibility: High Contrast Mode */
+@media (prefers-contrast: more) {
+    .error-message {
+        border-width: 2px;
+    }
+
+    .input-error {
+        border-width: 2px;
+    }
+
+    .success-message {
+        font-size: 1.25rem;
+    }
+}
+
+/* Smooth transitions for input states */
+input.input-error,
+textarea.input-error,
+select.input-error {
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+/* Tooltip-like error for inline display */
+.field-error-inline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2rem;
+}
+
+.field-error-inline .error-message {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 10;
+}
+
+/* Loading state (for async validation) */
+.field-validating input,
+.field-validating textarea,
+.field-validating select {
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(242, 169, 0, 0.1),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: validationLoading 1.5s infinite;
+}
+
+@keyframes validationLoading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Focus visible for keyboard navigation */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+    outline: 2px solid #f2a900;
+    outline-offset: 2px;
+}
+
+/* Required field indicator */
+.form-group label::after {
+    content: '';
+}
+
+.form-group label [required]::after,
+.required::after {
+    content: ' *';
+    color: #ef4444;
+}
+
+/* Disabled state */
+input:disabled,
+textarea:disabled,
+select:disabled {
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Animation for field validation completion */
+.validation-complete {
+    animation: validateSuccess 0.5s ease;
+}
+
+@keyframes validateSuccess {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
