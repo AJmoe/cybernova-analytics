@@ -1,6 +1,7 @@
 package com.taskproject.pd_webapp.dao;
 
 import com.taskproject.pd_webapp.model.Testimonial;
+import com.taskproject.pd_webapp.util.DBConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,18 +9,8 @@ import java.util.List;
 
 public class TestimonialDAO {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/cybernova_db";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "PASSWORD@123"; // use same password as ContentCardDAO
-
     private Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("MySQL JDBC Driver not found. Check pom.xml dependency.", e);
-        }
-
-        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        return DBConnection.getConnection();
     }
 
     public void submitTestimonial(Testimonial testimonial) {
