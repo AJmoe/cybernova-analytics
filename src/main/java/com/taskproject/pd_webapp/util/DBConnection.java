@@ -39,8 +39,19 @@ public final class DBConnection {
     }
 
     public static Connection getConnection() throws SQLException {
-        ensureInitialized();
-        return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        try {
+            ensureInitialized();
+            return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+        } catch (SQLException firstError) {
+            try {
+                // Retry once after 1 second delay
+                Thread.sleep(1000);
+                return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw firstError;
+            }
+        }
     }
 
     public static synchronized void ensureInitialized() {
